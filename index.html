@@ -1,193 +1,230 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Ayekta — Offline‑first EMR for low‑resource surgical settings</title>
-  <meta name="description" content="Ayekta is a lightweight, offline‑first EMR paired with consulting for NGOs and low‑resource clinics. Join the early pilot waitlist.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayekta — Offline‑first EMR for Low‑Resource Surgical Settings</title>
+  <meta name="description" content="Ayekta is a lightweight, offline‑first EMR paired with consulting for NGOs and low‑resource clinics. Join the early pilot waitlist." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Social sharing -->
+  <meta property="og:title" content="Ayekta — Digital Health for Low‑Resource Settings" />
+  <meta property="og:description" content="Offline‑first EMR + consulting. Built for surgical NGOs and small clinics where teams rotate and connectivity is patchy." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com" />
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23E44D26'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial' font-size='60'%3EAyekta%3C/text%3E%3C/svg%3E" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts & Tailwind (no build step) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{
-      --ink:#0f172a;          /* slate-900 */
-      --muted:#475569;        /* slate-600 */
-      --line:#e2e8f0;         /* slate-200 */
-      --bg:#f8fafc;           /* slate-50 */
-      --card:#ffffff;
-      --brand:#6AA6A0;        /* muted teal */
-      --brand-strong:#5a958f;
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: {
+              900: '#1A1A1A',
+              700: '#2A2A2A',
+              600: '#525252'
+            },
+            line: '#E6E1D9',       // warm paper line
+            bg: '#F9F7F4',         // cream background
+            card: '#FFFFFF',
+            brand: {
+              DEFAULT: '#E44D26',  // Ayekta red‑orange
+              strong: '#CC431F',
+              subtle: '#F06B49'
+            }
+          },
+          boxShadow: {
+            soft: '0 12px 30px rgba(0, 0, 0, .06), 0 6px 16px rgba(0,0,0,.04)'
+          },
+          borderRadius: {
+            xl2: '1.25rem'
+          }
+        }
+      }
     }
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);}
-    .container-max{max-width:1100px}
-    .shadow-soft{box-shadow:0 10px 25px rgba(2,6,23,.05),0 4px 12px rgba(0,0,0,.04)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:20px}
-    .btn{border-radius:14px;padding:.9rem 1.1rem;font-weight:600}
-    .btn-primary{background:var(--brand);color:white}
-    .btn-primary:hover{background:var(--brand-strong)}
-    .btn-ghost{background:white;border:1px solid var(--line);color:var(--ink)}
-    .muted{color:var(--muted)}
-    .grid-feats>div{border:1px solid var(--line);border-radius:16px;background:#f1f5f9}
-    /* Honeypot */
-    .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+  </script>
+
+  <style>
+    :root { color-scheme: light dark; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    :focus-visible { outline: 3px solid #E44D26; outline-offset: 2px; border-radius: 8px; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    }
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body { background: #0f0f0f; color: #e7e5e4; }
+      .card { background: #171717; border-color: #262626; }
+      .muted { color: #a3a3a3; }
+      .border-line { border-color: #262626; }
+    }
   </style>
+
+  <!-- Favicon uses brand color -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect x='8' y='8' width='112' height='112' rx='24' fill='%23E44D26'/%3E%3Cpath d='M64 30c1.66 0 3 1.34 3 3v24h24c1.66 0 3 1.34 3 3s-1.34 3-3 3H67v24c0 1.66-1.34 3-3 3s-3-1.34-3-3V63H37c-1.66 0-3-1.34-3-3s1.34-3 3-3h24V33c0-1.66 1.34-3 3-3z' fill='white'/%3E%3C/svg%3E" />
 </head>
-<body>
-<header class="py-6">
-  <div class="mx-auto px-6 container-max flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <img src="assets/logo.svg" alt="Ayekta logo" class="h-9 w-9 rounded-xl shadow-soft">
-      <div class="text-xl font-semibold tracking-tight">Ayekta</div>
-    </div>
-    <nav class="hidden md:flex items-center gap-6 text-sm muted">
-      <a class="hover:text-slate-900" href="#mission">Mission</a>
-      <a class="hover:text-slate-900" href="#why">Why</a>
-      <a class="hover:text-slate-900" href="#pilot">Pilot</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <!-- HERO -->
-  <section class="mx-auto px-6 container-max pb-12">
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-          Digital health that holds up in the field.
-        </h1>
-        <p class="mt-4 text-lg muted">
-          Ayekta is an offline‑first, modular EMR paired with on‑the‑ground consulting. Built for NGO missions and small clinics where teams rotate, connectivity is patchy, and records must be traceable.
-        </p>
-        <div class="mt-7 flex gap-3">
-          <a href="#pilot" class="btn btn-primary shadow-soft">Join the pilot waitlist</a>
-          <a href="#why" class="btn btn-ghost">How we’re different</a>
-        </div>
-        <p class="mt-3 text-xs muted">No PHI on this site. For introductions, use your work email.</p>
+<body class="bg-bg text-ink-900 selection:bg-brand/20 selection:text-ink-900">
+  <!-- Header -->
+  <header class="py-6">
+    <div class="mx-auto px-6 max-w-[1100px] flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- Inline brand mark (solid Ayekta orange) -->
+        <svg aria-hidden="true" class="h-9 w-9 rounded-xl shadow-soft" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="8" width="112" height="112" rx="24" fill="#E44D26"/>
+          <path d="M64 30c1.66 0 3 1.34 3 3v24h24c1.66 0 3 1.34 3 3s-1.34 3-3 3H67v24c0 1.66-1.34 3-3 3s-3-1.34-3-3V63H37c-1.66 0-3-1.34-3-3s1.34-3 3-3h24V33c0-1.66 1.34-3 3-3z" fill="white"/>
+        </svg>
+        <div class="text-xl font-semibold tracking-tight">Ayekta</div>
       </div>
-      <div class="card p-6 md:p-8 shadow-soft">
-        <div class="text-sm uppercase tracking-wide muted font-semibold">Designed for low‑resource care</div>
-        <ul class="mt-4 space-y-4">
-          <li class="flex gap-3">
-            <div class="h-10 w-10 rounded-lg bg-white border flex items-center justify-center shadow-soft">⚡</div>
-            <div>
-              <div class="font-semibold">Offline‑first capture</div>
-              <div class="muted">Document procedures, meds, and labs without internet; securely sync later.</div>
-            </div>
-          </li>
-          <li class="flex gap-3">
-            <div class="h-10 w-10 rounded-lg bg-white border flex items-center justify-center shadow-soft">🧩</div>
-            <div>
-              <div class="font-semibold">Modular & ergonomic</div>
-              <div class="muted">Only the flows you need. Less bloat, less training, fewer errors.</div>
-            </div>
-          </li>
-          <li class="flex gap-3">
-            <div class="h-10 w-10 rounded-lg bg-white border flex items-center justify-center shadow-soft">🔗</div>
-            <div>
-              <div class="font-semibold">Append‑only traceability</div>
-              <div class="muted">Versioned encounters; no silent overwrites; easy research exports.</div>
-            </div>
-          </li>
-          <li class="flex gap-3">
-            <div class="h-10 w-10 rounded-lg bg-white border flex items-center justify-center shadow-soft">🛡️</div>
-            <div>
-              <div class="font-semibold">Privacy‑conscious</div>
-              <div class="muted">Minimal data collection; safe by default. This site is not for patient data.</div>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-ink-600">
+        <a href="#mission" class="hover:text-ink-900">Mission</a>
+        <a href="#why" class="hover:text-ink-900">Why</a>
+        <a href="#pilot" class="hover:text-ink-900">Pilot</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- MISSION -->
-  <section id="mission" class="border-y" style="border-color:var(--line)">
-    <div class="mx-auto px-6 container-max py-12">
-      <h2 class="text-2xl font-semibold">Mission</h2>
-      <p class="mt-2 muted max-w-3xl">
-        “Health in Oneness.” Ayekta advances digital equity by bringing reliable, traceable record‑keeping to the last mile of care. We pair a lightweight EMR with consulting to adapt rollouts to real‑world constraints.
-      </p>
-    </div>
-  </section>
-
-  <!-- WHY -->
-  <section id="why" class="mx-auto px-6 container-max py-12">
-    <div class="grid md:grid-cols-3 gap-8">
-      <div>
-        <h2 class="text-2xl font-semibold">Why Ayekta?</h2>
-        <p class="mt-2 muted">More than software — field‑first design plus on‑the‑ground support.</p>
-      </div>
-      <div class="md:col-span-2 grid md:grid-cols-2 gap-6 grid-feats">
-        <div class="p-6">
-          <div class="font-semibold">Offline → Cloud Sync</div>
-          <p class="muted mt-2">Local capture with encrypted sync when connectivity exists. Zero lock‑in exports.</p>
+  <main>
+    <!-- HERO -->
+    <section class="mx-auto px-6 max-w-[1100px] pb-12">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight">Digital health that holds up in the field.</h1>
+          <p class="mt-4 text-lg text-ink-600">Ayekta is an offline‑first, modular EMR paired with on‑the‑ground consulting. Built for NGO missions and small clinics where teams rotate, connectivity is patchy, and records must be traceable.</p>
+          <div class="mt-7 flex gap-3">
+            <a href="#pilot" class="rounded-[14px] px-4 py-3 font-semibold text-white bg-brand hover:bg-brand-strong shadow-soft">Join the pilot waitlist</a>
+            <a href="#why" class="rounded-[14px] px-4 py-3 font-semibold bg-white border border-line text-ink-900 hover:bg-[rgba(0,0,0,0.03)]">How we’re different</a>
+          </div>
+          <p class="mt-3 text-xs text-ink-600">No PHI on this site. Use a work email for introductions.</p>
         </div>
-        <div class="p-6">
-          <div class="font-semibold">Role‑specific Workflows</div>
-          <p class="muted mt-2">Doctor, Pharmacist, Lab Tech flows to speed throughput and reduce errors.</p>
-        </div>
-        <div class="p-6">
-          <div class="font-semibold">Append‑only & Auditable</div>
-          <p class="muted mt-2">Every encounter versions a bundle for accountability and continuity of care.</p>
-        </div>
-        <div class="p-6">
-          <div class="font-semibold">Lightweight by Design</div>
-          <p class="muted mt-2">Ergonomics over feature bloat. Stability in low‑resource conditions comes first.</p>
+        <div class="card p-6 md:p-8 shadow-soft border border-line rounded-xl2 bg-card/90">
+          <div class="text-sm uppercase tracking-wide text-ink-600 font-semibold">Designed for low‑resource care</div>
+          <ul class="mt-4 space-y-4">
+            <li class="flex gap-3">
+              <div class="h-10 w-10 rounded-lg bg-white border border-line flex items-center justify-center shadow-soft">⚡</div>
+              <div>
+                <div class="font-semibold">Offline‑first capture</div>
+                <div class="text-ink-600">Document procedures, meds, and labs without internet; securely sync later.</div>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <div class="h-10 w-10 rounded-lg bg-white border border-line flex items-center justify-center shadow-soft">🧩</div>
+              <div>
+                <div class="font-semibold">Modular & ergonomic</div>
+                <div class="text-ink-600">Only the flows you need. Less bloat, less training, fewer errors.</div>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <div class="h-10 w-10 rounded-lg bg-white border border-line flex items-center justify-center shadow-soft">🔗</div>
+              <div>
+                <div class="font-semibold">Append‑only traceability</div>
+                <div class="text-ink-600">Versioned encounters; no silent overwrites; easy research exports.</div>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <div class="h-10 w-10 rounded-lg bg-white border border-line flex items-center justify-center shadow-soft">🛡️</div>
+              <div>
+                <div class="font-semibold">Privacy‑conscious</div>
+                <div class="text-ink-600">Minimal data by default. This site is not for patient data.</div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
+    </section>
+
+    <!-- MISSION -->
+    <section id="mission" class="border-y border-line">
+      <div class="mx-auto px-6 max-w-[1100px] py-12">
+        <h2 class="text-2xl font-semibold">Mission</h2>
+        <p class="mt-2 text-ink-600 max-w-3xl">“Health in Oneness.” Ayekta advances digital equity by bringing reliable, traceable record‑keeping to the last mile of care. We pair a lightweight EMR with consulting to adapt rollouts to real‑world constraints.</p>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why" class="mx-auto px-6 max-w-[1100px] py-12">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h2 class="text-2xl font-semibold">Why Ayekta?</h2>
+          <p class="mt-2 text-ink-600">More than software — field‑first design plus on‑the‑ground support.</p>
+        </div>
+        <div class="md:col-span-2 grid md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl border border-line bg-white/70">
+            <div class="font-semibold">Offline → Cloud Sync</div>
+            <p class="text-ink-600 mt-2">Local capture with encrypted sync when connectivity exists. Zero lock‑in exports.</p>
+          </div>
+          <div class="p-6 rounded-2xl border border-line bg-white/70">
+            <div class="font-semibold">Role‑specific Workflows</div>
+            <p class="text-ink-600 mt-2">Doctor, Pharmacist, Lab Tech flows to speed throughput and reduce errors.</p>
+          </div>
+          <div class="p-6 rounded-2xl border border-line bg-white/70">
+            <div class="font-semibold">Append‑only & Auditable</div>
+            <p class="text-ink-600 mt-2">Every encounter versions a bundle for accountability and continuity of care.</p>
+          </div>
+          <div class="p-6 rounded-2xl border border-line bg-white/70">
+            <div class="font-semibold">Lightweight by Design</div>
+            <p class="text-ink-600 mt-2">Ergonomics over feature bloat. Stability in low‑resource conditions comes first.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILOT / WAITLIST -->
+    <section id="pilot" class="mx-auto px-6 max-w-[1100px] pb-14">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl font-semibold">Join the early pilot</h2>
+        <p class="mt-2 text-ink-600">If you run or work with a surgical NGO or low‑resource clinic and want to co‑shape Ayekta, share your details below. <strong>Do not include patient information.</strong></p>
+      </div>
+      <form id="waitlistForm" class="mt-7 grid gap-5 max-w-xl p-6 rounded-2xl border border-line bg-card shadow-soft" method="POST" action="https://formspree.io/f/your-endpoint">
+        <!-- Honeypot (anti‑spam) -->
+        <label class="sr-only" for="hp-company">Company</label>
+        <input id="hp-company" class="absolute -left-[9999px] top-auto w-px h-px overflow-hidden" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div>
+          <label class="block text-sm font-medium" for="name">Full name</label>
+          <input id="name" required name="name" type="text" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="First Last" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium" for="email">Work email</label>
+          <input id="email" required name="email" type="email" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="name@org.org" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium" for="org">Organization</label>
+          <input id="org" name="org" type="text" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="NGO / Hospital / Clinic" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium" for="role">Role</label>
+          <input id="role" name="role" type="text" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="Surgeon / Program Director / etc." />
+        </div>
+        <div>
+          <label class="block text-sm font-medium" for="need">What problem are you trying to solve?</label>
+          <textarea id="need" name="need" rows="4" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="Briefly describe your current workflow and pain points."></textarea>
+        </div>
+        <button type="submit" class="rounded-[14px] px-4 py-3 font-semibold text-white bg-brand hover:bg-brand-strong shadow-soft">Request pilot access</button>
+        <p class="text-xs text-ink-600">By submitting, you agree to be contacted about Ayekta’s pilot. We won’t sell your data. Don’t include any PHI.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="py-10 border-t border-line">
+    <div class="mx-auto px-6 max-w-[1100px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="text-ink-600 text-sm">© <span id="y"></span> Ayekta • “Health in Oneness.”</div>
+      <div class="text-ink-600 text-sm">Contact: <a class="underline hover:text-ink-900" href="mailto:ebrahim.faizullabhoy@gmail.com">ebrahim.faizullabhoy@gmail.com</a></div>
     </div>
-  </section>
+  </footer>
 
-  <!-- PILOT / WAITLIST -->
-  <section id="pilot" class="mx-auto px-6 container-max pb-14">
-    <div class="max-w-2xl">
-      <h2 class="text-2xl font-semibold">Join the early pilot</h2>
-      <p class="mt-2 muted">If you run or work with a surgical NGO or low‑resource clinic and want to co‑shape Ayekta, share your details below. <strong>Do not include patient information.</strong></p>
-    </div>
-    <form id="waitlistForm" class="mt-7 grid gap-5 max-w-xl card p-6 shadow-soft" method="POST" action="https://formspree.io/f/your-endpoint">
-      <!-- Honeypot -->
-      <label class="hp">Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-
-      <div>
-        <label class="block text-sm font-medium">Full name</label>
-        <input required name="name" type="text" class="mt-1 w-full rounded-xl border border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="First Last"/>
-      </div>
-      <div>
-        <label class="block text-sm font-medium">Work email</label>
-        <input required name="email" type="email" class="mt-1 w-full rounded-xl border border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="name@org.org"/>
-      </div>
-      <div>
-        <label class="block text-sm font-medium">Organization</label>
-        <input name="org" type="text" class="mt-1 w-full rounded-xl border border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="NGO / Hospital / Clinic"/>
-      </div>
-      <div>
-        <label class="block text-sm font-medium">Role</label>
-        <input name="role" type="text" class="mt-1 w-full rounded-xl border border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="Surgeon / Program Director / etc."/>
-      </div>
-      <div>
-        <label class="block text-sm font-medium">What problem are you trying to solve?</label>
-        <textarea name="need" rows="4" class="mt-1 w-full rounded-xl border border-slate-300 focus:border-slate-500 focus:ring-slate-500" placeholder="Briefly describe your current workflow and pain points."></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary shadow-soft">Request pilot access</button>
-      <p class="text-xs muted">By submitting, you agree to be contacted about Ayekta’s pilot. We won’t sell your data. Don’t include any PHI.</p>
-    </form>
-  </section>
-</main>
-
-<footer class="py-10 border-t" style="border-color:var(--line)">
-  <div class="mx-auto px-6 container-max flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-    <div class="muted text-sm">© <span id="y"></span> Ayekta • “Health in Oneness.”</div>
-    <div class="muted text-sm">Contact: <a class="underline hover:text-slate-900" href="mailto:ebrahim.faizullabhoy@gmail.com">ebrahim.faizullabhoy@gmail.com</a></div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-  document.getElementById('waitlistForm').addEventListener('submit', function(e){
-    const hp = this.querySelector('input[name="company"]');
-    if(hp && hp.value){ e.preventDefault(); alert("Submission blocked."); }
-  });
-</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('waitlistForm').addEventListener('submit', function(e){
+      const hp = this.querySelector('input[name="company"]');
+      if(hp && hp.value){ e.preventDefault(); alert('Submission blocked.'); }
+    });
+  </script>
 </body>
 </html>
