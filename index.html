@@ -178,32 +178,55 @@
         <h2 class="text-2xl font-semibold">Join the early pilot</h2>
         <p class="mt-2 text-ink-600">If you run or work with a surgical NGO or low‑resource clinic and want to co‑shape Ayekta, share your details below. <strong>Do not include patient information.</strong></p>
       </div>
-      <form id="waitlistForm" class="mt-7 grid gap-5 max-w-xl p-6 rounded-2xl border border-line bg-card shadow-soft" method="POST" action="https://formspree.io/f/your-endpoint">
-        <!-- Honeypot (anti‑spam) -->
+      <form
+        action="https://formspree.io/f/xzzjrlza"
+        method="POST"
+        class="mt-7 grid gap-5 max-w-xl p-6 rounded-2xl border border-line bg-card shadow-soft"
+      >
+        <!-- Honeypot (anti-spam) -->
         <label class="sr-only" for="hp-company">Company</label>
-        <input id="hp-company" class="absolute -left-[9999px] top-auto w-px h-px overflow-hidden" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-
+        <input id="hp-company" class="absolute -left-[9999px] top-auto w-px h-px overflow-hidden"
+               type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      
         <div>
           <label class="block text-sm font-medium" for="name">Full name</label>
-          <input id="name" required name="name" type="text" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="First Last" />
+          <input id="name" name="name" type="text" required
+                 class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2"
+                 placeholder="First Last" />
         </div>
+      
         <div>
           <label class="block text-sm font-medium" for="email">Work email</label>
-          <input id="email" required name="email" type="email" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="name@org.org" />
+          <input id="email" name="email" type="email" required
+                 class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2"
+                 placeholder="name@org.org" />
         </div>
+      
         <div>
           <label class="block text-sm font-medium" for="org">Organization</label>
-          <input id="org" name="org" type="text" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="NGO / Hospital / Clinic" />
+          <input id="org" name="organization" type="text"
+                 class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2"
+                 placeholder="NGO / Hospital / Clinic" />
         </div>
+      
         <div>
           <label class="block text-sm font-medium" for="role">Role</label>
-          <input id="role" name="role" type="text" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="Surgeon / Program Director / etc." />
+          <input id="role" name="role" type="text"
+                 class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2"
+                 placeholder="Surgeon / Program Director / etc." />
         </div>
+      
         <div>
           <label class="block text-sm font-medium" for="need">What problem are you trying to solve?</label>
-          <textarea id="need" name="need" rows="4" class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2" placeholder="Briefly describe your current workflow and pain points."></textarea>
+          <textarea id="need" name="message" rows="4" required
+                    class="mt-1 w-full rounded-xl border border-line focus:border-brand focus:ring-brand px-3 py-2"
+                    placeholder="Briefly describe your current workflow and pain points."></textarea>
         </div>
-        <button type="submit" class="rounded-[14px] px-4 py-3 font-semibold text-white bg-brand hover:bg-brand-strong shadow-soft">Request pilot access</button>
+      
+        <button type="submit"
+                class="rounded-[14px] px-4 py-3 font-semibold text-white bg-brand hover:bg-brand-strong shadow-soft">
+          Request pilot access
+        </button>
         <p class="text-xs text-ink-600">By submitting, you agree to be contacted about Ayekta’s pilot. We won’t sell your data. Don’t include any PHI.</p>
       </form>
     </section>
